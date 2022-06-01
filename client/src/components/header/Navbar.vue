@@ -49,11 +49,11 @@
                 >
                   <div class="py-3 px-4">
                     <span class="block text-sm text-gray-900 dark:text-white"
-                      >Bonnie Green</span
+                      >{{ $store.state.user.me[0].firstName }} {{ $store.state.user.me[0].lastName }}</span
                     >
                     <span
                       class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400"
-                      >name@flowbite.com</span
+                      >{{ $store.state.user.me[0].email }}</span
                     >
                   </div>
                   <ul class="py-1" aria-labelledby="dropdown">
@@ -167,6 +167,10 @@ export default {
     return {
       isShowDropdown: false,
     };
+  },
+  created() {
+    const token = localStorage.getItem("jwt")
+    this.$store.dispatch('getUserDetails', token)
   },
   methods: {
     showDropdown() {

@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import store from '@/store'
 import router from "./router";
 import axios from "axios";
 import "@/css/tailwind.css";
@@ -11,7 +12,7 @@ const base = axios.create({
   baseURL: "http://localhost:4000",
 });
 
-const app = createApp(App);
+const app = createApp(App).use(store);
 app.component("Popper", Popper)
 
 app.directive("focus", {

@@ -1,6 +1,6 @@
 <template>
   <div id="dashboard">
-    <h1>Hello {{ user.username }}</h1>
+    <h1>Hello {{ $store.state.user.me[0].firstName }}</h1>
   </div>
 </template>
 
@@ -25,8 +25,9 @@ export default {
       this.$router.push("/");
     },
   },
-  created() {
-    this.getUserDetails();
-  },
+  mounted() {
+    const token = localStorage.getItem("jwt")
+    this.$store.dispatch('getUserDetails', token)
+  }
 };
 </script>
