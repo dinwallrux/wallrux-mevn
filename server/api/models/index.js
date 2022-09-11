@@ -1,4 +1,4 @@
-const dbConfig = require('../../config/db.config')
+const dbConfig = require('../../config/db')
 const mongoose = require('mongoose')
 const shop = require('./shop.model')(mongoose)
 
