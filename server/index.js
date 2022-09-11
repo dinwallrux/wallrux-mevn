@@ -4,13 +4,19 @@ const morgan = require('morgan')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const config = require('./config/db')
 const app = express()
+
+const userRoutes = require('./api/user/routes/user')
+const shopRoutes = require('./app/routes/shop.routes')
+const db = require('./app/models')
 
 // configure database and mongoose
 // mongoose.set("useCreateIndex", true)
 mongoose
-	.connect(config.database, { useNewUrlParser: true })
+	.connect(db.url, { 
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	})
 	.then(() => {
 		console.log('Database is connected')
 	})
@@ -35,8 +41,10 @@ var corsOptions = {
 	origin: 'http://localhost:3000',
 	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
-const userRoutes = require('./api/user/route/user')
+
 app.use('/user', cors(corsOptions), userRoutes)
+require('./app/routes/shop.routes')(app)
+
 app.listen(PORT, () => {
 	console.log(`App is running on ${PORT}`)
 })

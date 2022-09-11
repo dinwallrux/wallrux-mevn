@@ -27,7 +27,8 @@ export default {
   },
   mounted() {
     const token = localStorage.getItem("jwt")
-    this.$store.dispatch('getUserDetails', token)
+    this.$store.dispatch('user/getUserDetails', token)
+    // console.log(this.$store)
   }
 };
 </script>

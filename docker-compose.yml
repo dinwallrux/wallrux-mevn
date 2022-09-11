@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./client
+    ports:
+      - 3000:3000
+  api:
+    build: ./server
+    ports:
+      - 4000:4000
+    environment:
+      DB_URL: mongo://db/wallrux
+  db:
+    image: mongo:4.2.21-bionic
+    ports:
+      - 27017:27017
+    volumes:
+      - wallrux:/data/db
+volumes:
+  wallrux:

@@ -1,6 +1,8 @@
 <template>
   <aside class="w-72" aria-label="Sidebar">
-    <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800 h-screen">
+    <div
+      class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800 h-screen"
+    >
       <a href="https://flowbite.com" class="flex items-center pl-2.5 mb-5">
         <img
           src="https://flowbite.com/docs/images/logo.svg"
@@ -14,8 +16,8 @@
       </a>
       <ul class="space-y-2">
         <li>
-          <a
-            href="#"
+          <router-link
+            :to="{ name: 'dashboard' }"
             class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
           >
             <svg
@@ -28,7 +30,7 @@
               <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
             </svg>
             <span class="ml-3">Dashboard</span>
-          </a>
+          </router-link>
         </li>
         <li>
           <a
@@ -90,26 +92,6 @@
             >
               <path
                 fill-rule="evenodd"
-                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-            <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-          >
-            <svg
-              class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
                 d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
                 clip-rule="evenodd"
               ></path>
@@ -156,6 +138,48 @@
             </svg>
             <span class="flex-1 ml-3 whitespace-nowrap">Sign Up</span>
           </a>
+        </li>
+        <li>
+          <router-link
+            :to="{ name: 'account' }"
+            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+          >
+            <svg
+              class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link
+            :to="{ name: 'shop' }"
+            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+          >
+            <svg
+              class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+              ></path>
+            </svg>
+            <span class="flex-1 ml-3 whitespace-nowrap">Shops</span>
+          </router-link>
         </li>
       </ul>
     </div>

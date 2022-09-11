@@ -170,7 +170,7 @@ export default {
   },
   created() {
     const token = localStorage.getItem("jwt")
-    this.$store.dispatch('getUserDetails', token)
+    this.$store.dispatch('user/getUserDetails', token)
   },
   methods: {
     showDropdown() {

@@ -35,3 +35,11 @@ exports.loginUser = async (req, res) => {
 exports.getUserDetails =  async (req, res) => {
     await res.json(req.userData)
 }
+
+exports.updateUser = async (req, res) => {
+    const q = await User.updateOne(
+        { _id: req.params.id },
+        { $set: req.body }
+    )
+    res.json(q)
+}

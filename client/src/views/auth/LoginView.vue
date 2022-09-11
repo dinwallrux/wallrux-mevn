@@ -72,7 +72,7 @@ export default {
         let response = await this.$http.post("/user/login", this.login);
         let token = response.data.token;
         localStorage.setItem("jwt", token);
-        this.$store.dispatch('getUserDetails', token)
+        this.$store.dispatch('user/getUserDetails', token)
         if (token) {
           this.$router.push({name: 'dashboard'});
         }
